@@ -1,0 +1,56 @@
+---
+labels:
+    Urban fabric: 0
+    Industrial or commercial units: 1
+    Arable land: 2
+    Permanent crops: 3
+    Pastures: 4
+    Complex cultivation patterns: 5
+    Land principally occupied by agriculture with significant areas of natural vegetation: 6
+    Agro-forestry areas: 7
+    Broad-leaved forest: 8
+    Coniferous forest: 9
+    Mixed forest: 10
+    Natural grassland and sparsely vegetated areas: 11
+    Moors heathland and sclerophyllous vegetation: 12
+    Transitional woodland shrub: 13
+    Beaches dunes sands: 14
+    Inland wetlands: 15
+    Coastal wetlands: 16
+    Inland waters: 17
+    Marine waters: 18
+algorithm: fedgen
+#run config
+learning_rate: 0.001
+local_epochs: 1
+personal_learning_rate: 0.01
+beta: 1.0
+lambda: 1
+mix_lambda: 0.1
+num_users: all
+K: 225
+distill_start: 0 #0- knowledge distillation after users have been trained for an epoch
+distill_stop: 20
+times: 3
+early_stop: True
+num_glob_iters: 20
+#generator and ensemble config
+gen_batch_size: 48
+min_samples_per_label: 1
+label_sampling: not uniform
+embedding: 0
+n_teacher_iters: 10
+n_student_iters: 1
+early_stop: True
+ensemble_lr : 3e-4
+ensemble_batch_size : 48
+ensemble_epochs : 150
+num_pretrain_iters : 20
+ensemble_alpha : 1  # teacher loss (server side)
+ensemble_beta : 0  # adversarial student loss
+ensemble_eta : 1      # diversity loss
+generative_alpha : 1
+generative_beta : 0.5
+unique_labels : 19
+weight_decay : 1e-2
+
